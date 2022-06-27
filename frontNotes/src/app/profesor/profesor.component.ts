@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Profesor } from '../Models/Profesor';
+import { ProfesorService } from '../servicios/profesor.service';
 import { ValidacionService } from '../servicios/validacion.service';
 
 @Component({
@@ -10,10 +12,12 @@ import { ValidacionService } from '../servicios/validacion.service';
 export class ProfesorComponent implements OnInit {
 
   forma : FormGroup;
+  profesor: any;
 
-  constructor(private fb:FormBuilder, private validar:ValidacionService) {
+  constructor(private fb:FormBuilder, private validar:ValidacionService, private profesorService:ProfesorService) {
     this.forma = this.fb.group({});
     this.crearForm();
+    this.getProfesor();
    }
 
   ngOnInit(): void {
@@ -21,13 +25,21 @@ export class ProfesorComponent implements OnInit {
 
   crearForm(){
     this.forma = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(3), this.validar.Validar]],
-      paterno:['', [Validators.required, Validators.minLength(3), this.validar.Validar]],
-      jefe:['', [Validators.required, Validators.minLength(3)]]
+      nombreProfesor: ['', [Validators.required, Validators.minLength(3), this.validar.Validar]],
+      apellidoProfesor:['', [Validators.required, Validators.minLength(3), this.validar.Validar]],
+      profesorJefe:['', [Validators.required, Validators.minLength(3)]]
     })
   }
 
-  guardar(){
-    console.log(this.forma);    
-  }
+  getProfesor(){
+    this.profesorService.getProfes().subscribe(pro=>{
+      this.profesor=pro;
+     
+    })
+
+    }
+
+
+
+  
 }

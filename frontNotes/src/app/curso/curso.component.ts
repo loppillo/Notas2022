@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CursoService } from '../servicios/curso.service';
 import { ValidacionService } from '../servicios/validacion.service';
 
 @Component({
@@ -8,25 +9,33 @@ import { ValidacionService } from '../servicios/validacion.service';
   styleUrls: ['./curso.component.css']
 })
 export class CursoComponent implements OnInit {
+  cursos:any;
 
-  forma : FormGroup;
 
-  constructor(private fb:FormBuilder, private validar:ValidacionService) {
-    this.forma = this.fb.group({});
-    this.crearForm();
+  constructor(private fb:FormBuilder, private validar:ValidacionService, private cursoService:CursoService) {
+ 
+    this.getCurso();
    }
 
   ngOnInit(): void {
   }
 
-  crearForm(){
-    this.forma = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(3), this.validar.Validar]]
+  
+
+  getCurso(){
+    this.cursoService.getCursos().subscribe(cur=>{
+      this.cursos=cur;
      
     })
-  }
 
-  guardar(){
-    console.log(this.forma);    
-  }
+    }
+
+    eliminar(id:any){
+      this.cursoService.delete(id);
+
+
+
+    }
+
+
 }

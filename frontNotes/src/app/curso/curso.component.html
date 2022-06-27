@@ -1,31 +1,8 @@
 
 <h2>Formularios <strong>Curso</strong></h2>
 <hr>
-<form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
-
-    <div class="form-group row">
-        <label class="col-2 col-form-label">Nombre</label>
-        <div class="col-8">
-            <input 
-            type="text" 
-            name="nombre" 
-            placeholder="Nombre"
-            formControlName="nombre">
-        </div>
-    </div>    
-   
-    
-    <div class="form-group row">
-        <label class="col-2 col-form-label">&nbsp;</label>
-        <div class="input-group col">
-          <button type="submit" class="btn btn-outline-primary btn-block">
-            Guardar
-          </button>
-        </div>
-      </div>
-
-</form>
-
+<h3><button  class="btn btn-outline-primary btn-block" [routerLink]="['../guardarC']">Añadir</button></h3>
+<hr>
 
 <div class="main">
     <div class="table-responsive">
@@ -38,19 +15,17 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let tarea of listaTarea">
-            <td>{{ tarea.tipoActualizacion.nombre }}</td>
-            <td>{{ tarea.estado.nombre }}</td>
-            <td>{{ tarea.equipo.numeroSerie}}</td>
-            <td>{{ tarea.equipo.modelo.nombre}}</td>
-            <td>{{ tarea.movil.numeroInterno}}</td>
-            <td>{{ tarea.razonSocial }}</td>
-            <td>{{ tarea.archivo.nombre }}</td>
-            <td>{{ tarea.fechaCreacion}}</td>
-            <td>{{ tarea.fechaActualizacion}}</td>
-            <td>{{ tarea.intentosTarea}}</td>
-            <td>{{ tarea.descripcion}}</td>
-          </tr> -->
+          <tr *ngFor="let curso of cursos">
+            <td>{{ curso.id_curso }}</td>
+            <td>{{ curso.nombre }}</td>
+            <td>
+                <button class="btn btn-sm btn-table" tooltip="Ver detalle" (click)="eliminar(curso.id_curso)">
+                  <i class="fa fa-trash button-danger" aria-hidden="true"></i>
+                </button>
+              </td>
+          </tr>
         </tbody>
       </table>
     </div>
+
+ 
