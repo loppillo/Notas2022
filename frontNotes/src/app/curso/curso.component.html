@@ -1,0 +1,56 @@
+
+<h2>Formularios <strong>Curso</strong></h2>
+<hr>
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Nombre</label>
+        <div class="col-8">
+            <input 
+            type="text" 
+            name="nombre" 
+            placeholder="Nombre"
+            formControlName="nombre">
+        </div>
+    </div>    
+   
+    
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col">
+          <button type="submit" class="btn btn-outline-primary btn-block">
+            Guardar
+          </button>
+        </div>
+      </div>
+
+</form>
+
+
+<div class="main">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Número Registro</th>
+            <th scope="col">Nombre Curso</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let tarea of listaTarea">
+            <td>{{ tarea.tipoActualizacion.nombre }}</td>
+            <td>{{ tarea.estado.nombre }}</td>
+            <td>{{ tarea.equipo.numeroSerie}}</td>
+            <td>{{ tarea.equipo.modelo.nombre}}</td>
+            <td>{{ tarea.movil.numeroInterno}}</td>
+            <td>{{ tarea.razonSocial }}</td>
+            <td>{{ tarea.archivo.nombre }}</td>
+            <td>{{ tarea.fechaCreacion}}</td>
+            <td>{{ tarea.fechaActualizacion}}</td>
+            <td>{{ tarea.intentosTarea}}</td>
+            <td>{{ tarea.descripcion}}</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>

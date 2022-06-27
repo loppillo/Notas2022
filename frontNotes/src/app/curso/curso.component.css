@@ -1,0 +1,31 @@
+.tabla {
+    box-shadow: #002171;
+    background-color: #fff;
+  
+  }
+  .tabla .table thead th {
+    font-size: 0.75rem;
+    color: #263238;
+    font-weight: 600;
+    border-top: none;
+  }
+  .tabla .table td {
+    font-size: 0.75rem;
+    color: #455a64;
+    position: relative;
+  }
+  
+  .tabla .table td .show-table i {
+    color: #e9ecef;
+    position: fixed;
+    top: 35%;
+    right: -41%;
+    transform: rotate(90deg);
+  }
+  
+  .tabla .table td .show-table .table-responsive table {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+  
+  
+  }
