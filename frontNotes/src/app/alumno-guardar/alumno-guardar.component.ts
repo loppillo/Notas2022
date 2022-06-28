@@ -46,8 +46,7 @@ export class AlumnoGuardarComponent implements OnInit {
       nombre2: data.nombre2,
       apellido1: data.apellido1,
       apellido2: data.apellido2,
-      rut: data.rut,
-      curso: data.id_curso
+      rut: data.rut
 
     };
     console.log('El registro está success', data);
