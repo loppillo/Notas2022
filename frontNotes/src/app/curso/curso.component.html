@@ -11,18 +11,14 @@
           <tr>
             <th scope="col">Número Registro</th>
             <th scope="col">Nombre Curso</th>
-            <th scope="col">Acción</th>
+
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let curso of cursos">
             <td>{{ curso.id_curso }}</td>
             <td>{{ curso.nombre }}</td>
-            <td>
-                <button class="btn btn-sm btn-table" tooltip="Ver detalle" (click)="eliminar(curso.id_curso)">
-                  <i class="fa fa-trash button-danger" aria-hidden="true"></i>
-                </button>
-              </td>
+            
           </tr>
         </tbody>
       </table>

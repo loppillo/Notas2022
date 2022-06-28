@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlumnoService } from '../servicios/alumno.service';
 import { ValidacionService } from '../servicios/validacion.service';
 
 @Component({
@@ -10,10 +11,12 @@ import { ValidacionService } from '../servicios/validacion.service';
 export class AlumnoComponent implements OnInit {
 
   forma : FormGroup;
+  alumnos:any;
 
-  constructor(private fb:FormBuilder, private validar:ValidacionService) {
+  constructor(private fb:FormBuilder, private validar:ValidacionService,private alumno:AlumnoService) {
     this.forma = this.fb.group({});
     this.crearForm();
+    this.getAlumno();
    }
 
   ngOnInit(): void {
@@ -27,8 +30,17 @@ export class AlumnoComponent implements OnInit {
     })
   }
 
-  guardar(){
-    console.log(this.forma);    
-  }
+  getAlumno(){
+    this.alumno.getAlumno().subscribe(al=>{
+      this.alumnos=al;
+     
+    })
+
+    }
+
+
+
+
+
 
 }

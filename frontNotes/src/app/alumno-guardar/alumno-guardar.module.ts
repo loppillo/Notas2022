@@ -1,22 +1,22 @@
-import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { AlumnoRoutingModule } from './alumno-routing.module';
-import { AlumnoComponent } from './alumno.component';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlumnoGuardarRoutingModule } from './alumno-guardar-routing.module';
+import { AlumnoGuardarComponent } from './alumno-guardar.component';
 
 
 @NgModule({
   declarations: [
-    AlumnoComponent
+    AlumnoGuardarComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
   imports: [
     CommonModule,
-    AlumnoRoutingModule,
+    AlumnoGuardarRoutingModule,
     ReactiveFormsModule,
     FormsModule
   ]
 })
-export class AlumnoModule { }
+export class AlumnoGuardarModule { }
